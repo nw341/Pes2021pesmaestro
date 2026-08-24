@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Komik Video</title>
+    <style>
+        body { 
+            margin: 0; 
+            background: #111; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        #msg { color: white; font-size: 24px; text-align: center; }
+        #fullvideo { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh; 
+            display: none; 
+            object-fit: cover; 
+            z-index: 999;
+        }
+    </style>
+</head>
+<body onclick="patlat()">
+
+    <div id="msg">Video yükleniyor...<br><small>(Oynatmak için ekrana tıklayın)</small></div>
+    
+    <video id="fullvideo" src="video.mp4"></video>
+
+    <script>
+        function patlat() {
+            var vid = document.getElementById('fullvideo');
+            var msg = document.getElementById('msg');
+
+            msg.style.display = 'none';
+            vid.style.display = 'block';
+            vid.play();
+
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>
